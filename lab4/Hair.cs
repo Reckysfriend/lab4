@@ -11,5 +11,6 @@ namespace lab4
         string hairLength = "10cm";
         string hairColor = "blå";
         string hairType = "curly";
+
     }
 }
