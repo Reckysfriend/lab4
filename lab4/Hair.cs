@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    internal class Hair
+    public struct Hair ()
     {
+        string hairLength = "10cm";
+        string hairColor = "blå";
+        string hairType = "curly";
     }
 }
