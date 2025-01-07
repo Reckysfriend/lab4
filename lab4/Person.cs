@@ -21,8 +21,13 @@ namespace lab4
         public Person() { } 
         public void Addperson()
         {
-            Console.WriteLine("What is your name");
-            string name = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("What is your first name");
+            string firstName = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("What is your last name");
+            string lastName = Console.ReadLine();
+            Console.Clear();
             Console.WriteLine("What is your Gender");
             Genders gender = 0;
             bool menu = true;
@@ -34,18 +39,22 @@ namespace lab4
                 {
                     case 1:
                         gender = Genders.Woman;
+                        Console.Clear ();
                         menu = false;
                         break;
                     case 2:
                         gender = Genders.Man;
+                        Console.Clear();
                         menu = false;
                         break;
                     case 3:
                         gender = Genders.Nonbinary;
+                        Console.Clear();
                         menu = false;   
                         break;
                     case 4:
                         gender = Genders.Other;
+                        Console.Clear();
                         menu = false;
                         break;
                     default:
@@ -56,8 +65,10 @@ namespace lab4
             }
             Console.WriteLine("What is your hairtype");
             string hairType = Console.ReadLine();
+            Console.Clear();
             Console.WriteLine("What is your haircolour");
             string hairColour = Console.ReadLine();
+            Console.Clear();
             Console.WriteLine("How long is your hair");
             string hairLength = Console.ReadLine();
             int birthYear = 0;
@@ -66,6 +77,7 @@ namespace lab4
             menu = true;
             while (menu)
             {
+                Console.Clear();
                 Console.WriteLine("Enter the year you were born");
                 Int32.TryParse(Console.ReadLine(), out birthYear);
                 if (birthYear >= 1925 && birthYear <= 2025)
@@ -79,6 +91,7 @@ namespace lab4
             menu = true;
             while (menu)
             {
+                Console.Clear();
                 Console.WriteLine("Enter the month you were born");
                 Int32.TryParse(Console.ReadLine(), out birthMonth);
                 if (birthMonth >= 1 && birthMonth <= 12) 
@@ -92,6 +105,7 @@ namespace lab4
             menu = true;
             while (menu)
             {
+                Console.Clear();
                 Console.WriteLine("Enter the day you were born");
                 Int32.TryParse(Console.ReadLine(), out birthDay);
                 if (birthDay >= 1 && birthDay <= 31)
@@ -102,10 +116,12 @@ namespace lab4
                     Console.WriteLine($"{birthDay} is not a real day, please enter a valid date");
                 }
             }
-            DateTime birthday = new DateTime(birthYear, birthMonth, birthDay); 
+            DateTime birthday = new DateTime(birthYear, birthMonth, birthDay);
+            Console.Clear();
             Console.WriteLine("What is your Eyecolour");
             string eyeColour = Console.ReadLine();
-            Hair hair = new Hair(hairType, hairColour, hairLength);
+            Hair hair = new Hair(hairLength, hairColour, hairType);
+            string name = $"{firstName} {lastName}";
             Person person = new Person(gender, hair, birthday, eyeColour, name);
             ListOfPeople.listOfPeople.Add(person);
             Console.Clear();
