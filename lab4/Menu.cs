@@ -4,6 +4,7 @@
     {
         public void GoToMenu()
         {
+            Person person = new Person();
             bool menu = true;
             while (menu)
             {
@@ -13,11 +14,11 @@
                 {
                     case 1:
                         menu = false;
-                        //Go to AddPerson function in Person class
+                        person.Addperson();
                         break;
                     case 2:
                         menu = false;
-                        //Go to ListPerson function in Person class
+                        person.ListPersons();
                         break;
                     case 3:
                         menu = false;

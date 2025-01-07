@@ -9,7 +9,7 @@ namespace lab4
         public DateTime Birthday { get; private set; }
         public string EyeColor { get; private set; }
         public string Name { get; private set; }
-
+        Menu mainMenu = new Menu();
         public Person(Genders gender, Hair hair, DateTime birthday, string eyecolor, string name)
         {
             Gender = gender;
@@ -18,7 +18,8 @@ namespace lab4
             EyeColor = eyecolor;
             Name = name;
         }
-        static void Addperson()
+        public Person() { } 
+        public void Addperson()
         {
             Console.WriteLine("What is your name");
             string name = Console.ReadLine();
@@ -67,7 +68,7 @@ namespace lab4
             {
                 Console.WriteLine("Enter the year you were born");
                 Int32.TryParse(Console.ReadLine(), out birthYear);
-                if (birthYear <= 1925 && birthYear >= 2025)
+                if (birthYear >= 1925 && birthYear <= 2025)
                 { menu = false; }
                 else
                 {
@@ -80,7 +81,7 @@ namespace lab4
             {
                 Console.WriteLine("Enter the month you were born");
                 Int32.TryParse(Console.ReadLine(), out birthMonth);
-                if (birthMonth <= 1 && birthMonth >= 12) 
+                if (birthMonth >= 1 && birthMonth <= 12) 
                 { menu = false; }
                 else 
                 {
@@ -93,7 +94,7 @@ namespace lab4
             {
                 Console.WriteLine("Enter the day you were born");
                 Int32.TryParse(Console.ReadLine(), out birthDay);
-                if (birthDay <= 1 && birthDay >= 31)
+                if (birthDay >= 1 && birthDay <= 31)
                 { menu = false; }
                 else
                 {
@@ -106,9 +107,18 @@ namespace lab4
             string eyeColour = Console.ReadLine();
             Hair hair = new Hair(hairType, hairColour, hairLength);
             Person person = new Person(gender, hair, birthday, eyeColour, name);
-            
+            ListOfPeople.listOfPeople.Add(person);
+            Console.Clear();
+            mainMenu.GoToMenu();
         }
-
+        public void ListPersons()
+        {
+            foreach (Person person in ListOfPeople.listOfPeople)
+            {
+                Console.WriteLine(person);
+            }
+            mainMenu.GoToMenu();
+        }
         public override string ToString()
         {
             return $"Gender: {Gender},\n{Hair},\nBirthday: {Birthday},\nEyecolor: {EyeColor}";
