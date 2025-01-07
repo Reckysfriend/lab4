@@ -9,6 +9,10 @@
             Person person = new Person(Genders.Nonbinary,hair,DateTime.Today,"red");
             Console.WriteLine(person);
         }
+
+
+
+        
     }
    
 
