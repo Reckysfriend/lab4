@@ -2,12 +2,10 @@
 {
     public struct Hair
     {
-        // Make fields public or provide properties to access them
         public string HairLength;
         public string HairColor;
         public string HairType;
 
-        // Constructor to initialize the fields
         public Hair(string hairLength, string hairColor, string hairType)
         {
             HairLength = hairLength;
@@ -16,7 +14,7 @@
         }
         public override string ToString()
         {
-            return $"Hair Length: {HairLength}, Hair Color: {HairColor}, Hair Type: {HairType}";
+            return $"\nHair Length: {HairLength}, \nHair Color: {HairColor}, \nHair Type: {HairType}";
         }
     }
 }
