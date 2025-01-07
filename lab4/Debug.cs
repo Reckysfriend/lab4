@@ -35,7 +35,7 @@ namespace lab4
         {
             for (int i = 0; i < amountOfRandomPeople; i++)
             {
-                firstNameStr = firstName[2];
+                firstNameStr = firstName[random.Next(0,4)];
                 lastNameStr = lastName[random.Next(0, 4)];
                 hairLengthStr = hairLength[random.Next(0, 4)];
                 hairTypeStr = hairType[random.Next(0, 3)];
