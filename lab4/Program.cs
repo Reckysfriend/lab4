@@ -9,11 +9,15 @@
             Person person = new Person(Genders.Nonbinary,hair,DateTime.Today,"red");
             Console.WriteLine(person);
         }
+        public void ListPersons(List<Person> listOfPeople)
+        {
+            foreach (Person person in listOfPeople)
+            {
+                Console.WriteLine(person);               
+            }
 
-
-
-        
     }
    
 
+  }
 }
