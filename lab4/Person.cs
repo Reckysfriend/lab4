@@ -75,52 +75,58 @@ namespace lab4
             int birthYear = 0;
             int birthMonth = 0;
             int birthDay = 0;
+            bool subMenu = true;
             menu = true;
             while (menu)
             {
-                Console.WriteLine("Enter the year you were born");
-                Int32.TryParse(Console.ReadLine(), out birthYear);
-                if (birthYear >= 1925 && birthYear <= 2025)
+                while (subMenu)
                 {
-                    Console.Clear();
-                    menu = false; 
+                    Console.WriteLine("Enter the year you were born");
+                    Int32.TryParse(Console.ReadLine(), out birthYear);
+                    if (birthYear >= 1925 && birthYear <= 2025)
+                    {
+                        Console.Clear();
+                        subMenu = false;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{birthYear} is not a real month, please enter a valid year");
+                    }
                 }
-                else
+                subMenu = true;
+                while (subMenu)
                 {
-                    Console.Clear();
-                    Console.WriteLine($"{birthYear} is not a real month, please enter a valid year");
+                    Console.WriteLine("Enter the month you were born");
+                    Int32.TryParse(Console.ReadLine(), out birthMonth);
+                    if (birthMonth >= 1 && birthMonth <= 12)
+                    {
+                        Console.Clear();
+                        subMenu = false;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{birthMonth} is not a real month, please enter a valid month");
+                    }
                 }
-            }
-            menu = true;
-            while (menu)
-            {
-                Console.WriteLine("Enter the month you were born");
-                Int32.TryParse(Console.ReadLine(), out birthMonth);
-                if (birthMonth >= 1 && birthMonth <= 12) 
+                int daysInMonth = DateTime.DaysInMonth( birthYear, birthMonth );
+                subMenu = true;
+                while (subMenu)
                 {
-                    Console.Clear();
-                    menu = false; 
-                }
-                else 
-                {
-                    Console.Clear();
-                    Console.WriteLine($"{birthMonth} is not a real month, please enter a valid month"); 
-                }
-            }
-            menu = true;
-            while (menu)
-            {
-                Console.WriteLine("Enter the day you were born");
-                Int32.TryParse(Console.ReadLine(), out birthDay);
-                if (birthDay >= 1 && birthDay <= 31)
-                {
-                    Console.Clear();
-                    menu = false; 
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine($"{birthDay} is not a real day, please enter a valid date");
+                    Console.WriteLine("Enter the day you were born");
+                    Int32.TryParse(Console.ReadLine(), out birthDay);
+                    if (birthDay >= 1 && birthDay <= daysInMonth)
+                    {
+                        Console.Clear();
+                        subMenu = false;
+                        menu = false;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{birthDay} is not an existing day in {birthMonth} in {birthYear}, please enter a valid date");
+                    }
                 }
             }
             DateTime birthday = new DateTime(birthYear, birthMonth, birthDay);
