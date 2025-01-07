@@ -71,17 +71,20 @@ namespace lab4
             Console.Clear();
             Console.WriteLine("How long is your hair");
             string hairLength = Console.ReadLine();
+            Console.Clear();
             int birthYear = 0;
             int birthMonth = 0;
             int birthDay = 0;
             menu = true;
             while (menu)
             {
-                Console.Clear();
                 Console.WriteLine("Enter the year you were born");
                 Int32.TryParse(Console.ReadLine(), out birthYear);
                 if (birthYear >= 1925 && birthYear <= 2025)
-                { menu = false; }
+                {
+                    Console.Clear();
+                    menu = false; 
+                }
                 else
                 {
                     Console.Clear();
@@ -91,11 +94,13 @@ namespace lab4
             menu = true;
             while (menu)
             {
-                Console.Clear();
                 Console.WriteLine("Enter the month you were born");
                 Int32.TryParse(Console.ReadLine(), out birthMonth);
                 if (birthMonth >= 1 && birthMonth <= 12) 
-                { menu = false; }
+                {
+                    Console.Clear();
+                    menu = false; 
+                }
                 else 
                 {
                     Console.Clear();
@@ -105,11 +110,13 @@ namespace lab4
             menu = true;
             while (menu)
             {
-                Console.Clear();
                 Console.WriteLine("Enter the day you were born");
                 Int32.TryParse(Console.ReadLine(), out birthDay);
                 if (birthDay >= 1 && birthDay <= 31)
-                { menu = false; }
+                {
+                    Console.Clear();
+                    menu = false; 
+                }
                 else
                 {
                     Console.Clear();
@@ -137,7 +144,7 @@ namespace lab4
         }
         public override string ToString()
         {
-            return $"Gender: {Gender},\n{Hair},\nBirthday: {Birthday},\nEyecolor: {EyeColor}";
+            return $"{Name}\n{Gender}\nBorn: {Birthday}{Hair}\nEyecolor: {EyeColor}";
         }
 
     }
