@@ -13,7 +13,7 @@
             bool menu = true;
             while (menu)
             {
-                Console.WriteLine("\t\n Evil Evesdrop Enterprises Counterespionage\n\n\t[1] Create person\n\t[2] Show all people\n\t[3] Quit");
+                Console.WriteLine("\n\tEvil Evesdrop Enterprises Counterespionage\n\n\t[1] Create person\n\t[2] Show all people\n\t[3] Quit");
                 Int32.TryParse(Console.ReadLine(), out int menuchoice);
                 switch (menuchoice)
                 {
