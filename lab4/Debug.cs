@@ -10,13 +10,17 @@ namespace lab4
 {
     internal class Debug
     {
+        //Val av hur många personer man vill slumpa fram. 
         int amountOfRandomPeople = 100;
+        //Instansierar 5 arrays som håller lite för bestämmd data en random
+        //person kan ha. 
         string[] firstName = ["Greg", "Jenny", "Ivan", "Micky", "Sarah"];
         string[] lastName = ["Smith", "Andersson", "Joy", "Wickers", "Saint"];
         string[] hairLength = ["10", "15", "20", "25", "30" , "35"];
         string[] hairType = ["Curly", "Wavy", "Stright"];
         string[] colors = ["Brown", "Blue", "Green", "Yellow", "Red"];
 
+        //Skapar våra referenser samt deklarerar våra variabler
         Genders gender = new Genders();
         Random random = new Random();
         string firstNameStr = "";
@@ -35,6 +39,8 @@ namespace lab4
         {
             for (int i = 0; i < amountOfRandomPeople; i++)
             {
+                //Tillderlar våra variabler olika värden utifrån våra arrays
+                //med hjälp av Random. 
                 firstNameStr = firstName[random.Next(0,5)];
                 lastNameStr = lastName[random.Next(0, 5)];
                 hairLengthStr = hairLength[random.Next(0, 5)];
@@ -46,7 +52,8 @@ namespace lab4
                 avalibleDays = DateTime.DaysInMonth(birthYear, birthMonth);
                 birthDay = random.Next(1, avalibleDays + 1);
                 gender = (Genders)random.Next(0, 4);
-
+                //Använder oss av konstruktorn för att skapa vår person
+                //efter tidigare givna värden.
                 DateTime birthday = new DateTime(birthYear, birthMonth, birthDay);
                 Hair hair = new Hair(hairLengthStr, hairColourStr, hairTypeStr);
                 fullName = $"{firstNameStr} {lastNameStr}";
