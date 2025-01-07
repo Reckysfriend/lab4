@@ -133,18 +133,12 @@ namespace lab4
             ListOfPeople.listOfPeople.Add(person);
             Console.Clear();
             mainMenu.GoToMenu();
-        }
-        public void ListPersons()
-        {
-            foreach (Person person in ListOfPeople.listOfPeople)
-            {
-                Console.WriteLine(person);
-            }
-            mainMenu.GoToMenu();
-        }
+        }       
         public override string ToString()
         {
-            return $"{Name}\n{Gender}\nBorn: {Birthday}{Hair}\nEyecolor: {EyeColor}";
+            return $"--------------------\n" +
+                $"{Name} ({Gender})\nBorn: {Birthday.ToString("yyyy-MM-dd")}{Hair}\nEyecolor: {EyeColor}\n" +
+                $"--------------------";
         }
 
     }

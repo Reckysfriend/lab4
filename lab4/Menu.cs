@@ -5,6 +5,7 @@
         public void GoToMenu()
         {
             Person person = new Person();
+            ListOfPeople listOfPeople = new ListOfPeople();
             bool menu = true;
             while (menu)
             {
@@ -18,7 +19,7 @@
                         break;
                     case 2:
                         menu = false;
-                        person.ListPersons();
+                        listOfPeople.ListPersons();
                         break;
                     case 3:
                         menu = false;

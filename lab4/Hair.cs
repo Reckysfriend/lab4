@@ -14,7 +14,7 @@
         }
         public override string ToString()
         {
-            return $"\nHair Length: {HairLength}, \nHair Color: {HairColor}, \nHair Type: {HairType}";
+            return $"\nHair Length: {HairLength}cm \nHair Color: {HairColor} \nHair Type: {HairType}";
         }
     }
 }

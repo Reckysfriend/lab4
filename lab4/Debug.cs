@@ -29,25 +29,26 @@ namespace lab4
         int birthYear = 0;
         int birthMonth = 0;
         int birthDay = 0;
-       
+        int avalibleDays = 0;
 
         public void RunDebug()
         {
             for (int i = 0; i < amountOfRandomPeople; i++)
             {
-                firstNameStr = firstName[random.Next(0,4)];
-                lastNameStr = lastName[random.Next(0, 4)];
-                hairLengthStr = hairLength[random.Next(0, 4)];
+                firstNameStr = firstName[random.Next(0,5)];
+                lastNameStr = lastName[random.Next(0, 5)];
+                hairLengthStr = hairLength[random.Next(0, 5)];
                 hairTypeStr = hairType[random.Next(0, 3)];
-                hairColourStr = colors[random.Next(0, 4)];
-                eyeColourStr = colors[random.Next(0, 4)];
-                birthYear = random.Next(1950, 2025);
-                birthMonth = random.Next(1, 12);
-                birthDay = random.Next(1, 31);
-                gender = (Genders)random.Next(0,3);
+                hairColourStr = colors[random.Next(0, 5)];
+                eyeColourStr = colors[random.Next(0, 5)];
+                birthYear = random.Next(1950, 2024 + 1);
+                birthMonth = random.Next(1, 12 + 1);
+                avalibleDays = DateTime.DaysInMonth(birthYear, birthMonth);
+                birthDay = random.Next(1, avalibleDays + 1);
+                gender = (Genders)random.Next(0, 4);
 
                 DateTime birthday = new DateTime(birthYear, birthMonth, birthDay);
-                Hair hair = new Hair(hairTypeStr, hairColourStr, hairLengthStr);
+                Hair hair = new Hair(hairLengthStr, hairColourStr, hairTypeStr);
                 fullName = $"{firstNameStr} {lastNameStr}";
                 Person person = new Person(gender, hair, birthday, eyeColourStr, fullName);
                 ListOfPeople.listOfPeople.Add(person);
