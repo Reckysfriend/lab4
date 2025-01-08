@@ -26,6 +26,11 @@ namespace lab4
         public Person() { }
         public void Addperson()
         {
+            int birthYear = 0;
+            int birthMonth = 0;
+            int birthDay = 0;
+            double hairLength = 0;
+            bool subMenu = true;
             Console.Clear();
             //Tar in anvädarens förnamn
             Console.WriteLine("What is your first name?");
@@ -81,20 +86,33 @@ namespace lab4
             string hairColour = Console.ReadLine();
             Console.Clear();
             //Tar in användarens hårlängd i cm
-            Console.WriteLine("How long is your hair? (in cm)");
-            string hairLength = Console.ReadLine();
-            Console.Clear();
-            int birthYear = 0;
-            int birthMonth = 0;
-            int birthDay = 0;
-            bool subMenu = true;
+            subMenu = true;
+            while (subMenu)
+            {
+                Console.WriteLine("How long is your hair? (in cm)");
+                Double.TryParse(Console.ReadLine(), out hairLength);
+                if ( hairLength >= 0.1) 
+                {
+                    Console.Clear();
+                    subMenu = false;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Please enter a valid value for your hair length");
+                }
+            }
+           
+            Console.Clear();        
             menu = true;
+            subMenu = true;
+
             while (menu)
             {
                 //Loopar tills anändaren har givit ett giltigt år.
                 while (subMenu)
                 {
-                    Console.Write("Enter the year you were born: (ex: 1998)");
+                    Console.WriteLine("Enter the year you were born: (ex: 1998)");
                     Int32.TryParse(Console.ReadLine(), out birthYear);
                     if (birthYear >= 1925 && birthYear <= 2025)
                     {
@@ -111,7 +129,7 @@ namespace lab4
                 //Loopar tills användaren har givit en gilltig månad. 
                 while (subMenu)
                 {
-                    Console.Write("Enter the month you were born: (ex: 11)");
+                    Console.WriteLine("Enter the month you were born: (ex: 11)");
                     Int32.TryParse(Console.ReadLine(), out birthMonth);
                     if (birthMonth >= 1 && birthMonth <= 12)
                     {
@@ -124,29 +142,30 @@ namespace lab4
                         Console.WriteLine($"{birthMonth} is not a real month, please enter a valid month");
                     }
                 }
-            }
-            //Använder sig av DateTime för att hålla hur många dagar det fanns på
-            //den månad och år som användaren skrivit in.
-            int daysInMonth = DateTime.DaysInMonth(birthYear, birthMonth);
-            subMenu = true;
-            while (subMenu)
-            {
-                Console.WriteLine("Enter the day you were born");
-                Int32.TryParse(Console.ReadLine(), out birthDay);
-                if (birthDay >= 1 && birthDay <= daysInMonth)
+                //Använder sig av DateTime för att hålla hur många dagar det fanns på
+                //den månad och år som användaren skrivit in.
+                int daysInMonth = DateTime.DaysInMonth(birthYear, birthMonth);
+                subMenu = true;
+                while (subMenu)
                 {
-                    //Då det här är det sista steget och har användaren skrivit rätt här är det klart
-                    //så avslutar vi båda looparna. 
-                    Console.Clear();
-                    subMenu = false;
-                    menu = false;
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine($"{birthDay} is not an existing day in {birthMonth} in {birthYear}, please enter a valid date");
+                    Console.WriteLine("Enter the day you were born: (ex: 20)");
+                    Int32.TryParse(Console.ReadLine(), out birthDay);
+                    if (birthDay >= 1 && birthDay <= daysInMonth)
+                    {
+                        //Då det här är det sista steget och har användaren skrivit rätt här är det klart
+                        //så avslutar vi båda looparna. 
+                        Console.Clear();
+                        subMenu = false;
+                        menu = false;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{birthDay} is not an existing day in {birthMonth} in {birthYear}, please enter a valid date");
+                    }
                 }
             }
+            
             //Deklarerar och instansierar en DateTime variabel som håller användarens givna värden.
             DateTime birthday = new DateTime(birthYear, birthMonth, birthDay);
             Console.Clear();
@@ -154,7 +173,7 @@ namespace lab4
             Console.WriteLine("What is your Eyecolour?");
             string eyeColour = Console.ReadLine();
             //Skapar en hår variabel med hjälp av dens konstruktor med värdena givet av användaren. 
-            Hair hair = new Hair(hairLength, hairColour, hairType);
+            Hair hair = new Hair(hairLength.ToString(), hairColour, hairType);
             //Sätter ihop för och efternamn till en variabel. 
             string name = $"{firstName} {lastName}";
             //Skapar vår person med hjälp av alla givna värden.
