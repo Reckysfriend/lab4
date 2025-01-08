@@ -21,7 +21,7 @@
                         menu = false;
                         //Tar oss till funktionen som låter oss
                         //skapa en ny person
-                        person.Addperson();
+                        person.AddPerson();
                         break;
                     case 2:
                         menu = false;

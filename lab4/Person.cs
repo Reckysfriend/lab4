@@ -24,7 +24,7 @@ namespace lab4
         //En sekunder konstruktor som bara används när vi behöver skapa en 
         //referens till funktionerna inom vår Person klass. 
         public Person() { }
-        public void Addperson()
+        public void AddPerson()
         {
             int birthYear = 0;
             int birthMonth = 0;
